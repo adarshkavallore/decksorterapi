@@ -25,7 +25,7 @@ namespace DeckSortertAPI.Services
                     return CardSuit.Hearts;
 
                 default:
-                    throw new ArgumentException($"error: card \'{card}\' is invalid.");
+                    throw new ArgumentException($" card \'{card}\' is invalid.");
             }
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace DeckSortertAPI.Services
                     return CardRank.Ace;
 
                 default:
-                    throw new ArgumentException($"error: card \'{card}\' is invalid.");
+                    throw new ArgumentException($" card \'{card}\' is invalid.");
             }
         }
         /// <summary>
