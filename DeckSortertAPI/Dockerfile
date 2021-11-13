@@ -1,20 +1,21 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.1 AS base
+
+FROM  mcr.microsoft.com/dotnet/core/aspnet:2.1 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
 WORKDIR /src
-COPY ["DeckSorterAPI.csproj", "DeckSorterAPI/"]
-RUN dotnet restore "DeckSorterAPI/DeckSorterAPI.csproj"
-COPY . "DeckSorterAPI/"
-WORKDIR "/src/DeckSorterAPI"
-RUN dotnet build "DeckSorterAPI.csproj" -c Release -o /app
+COPY ["DeckSortertAPI.csproj", "DeckSortertAPI/"]
+RUN dotnet restore "DeckSortertAPI/DeckSortertAPI.csproj"
+COPY . .
+WORKDIR "/src"
+RUN dotnet build "DeckSortertAPI.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "DeckSorterAPI.csproj" -c Release -o /app
+RUN dotnet publish "DeckSortertAPI.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "DeckSorterAPI.dll"]
+ENTRYPOINT ["dotnet", "DeckSortertAPI.dll"]
