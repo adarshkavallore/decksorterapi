@@ -1,4 +1,5 @@
-﻿using DeckSortertAPI.Models;
+﻿using DeckSortertAPI.Middlewares;
+using DeckSortertAPI.Models;
 using DeckSortertAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,7 @@ namespace DeckSortertAPI
             {
                 app.UseHsts();
             }
+            app.UseDeckSorterExceptionHandler();
             app.UseCors(builder =>
             {
                 builder.WithOrigins(new string[] { "http://localhost:4200" });
