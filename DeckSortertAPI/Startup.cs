@@ -38,7 +38,13 @@ namespace DeckSortertAPI
             {
                 app.UseHsts();
             }
-
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins(new string[] { "http://localhost:4200" });
+                builder.AllowAnyMethod();
+                builder.AllowCredentials();
+                builder.AllowAnyHeader();
+            });
             app.UseHttpsRedirection();
             app.UseMvc();
         }

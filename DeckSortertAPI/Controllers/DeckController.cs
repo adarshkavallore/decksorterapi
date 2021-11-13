@@ -15,7 +15,7 @@ namespace DeckSortertAPI.Controllers
         }
         // GET 
         [Route("sort")]
-        [HttpGet]
+        [HttpPost]
         public ActionResult<IEnumerable<string>> Get([FromBody]List<string> cards)
         {
             return Ok(_cardSortService.SortCards(cards));
