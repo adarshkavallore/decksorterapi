@@ -13,7 +13,7 @@ namespace DeckSortertAPI.Services
         /// <returns></returns>
         public int Compare(Card firstCard, Card secondCard)
         {
-            if (firstCard.Equals(secondCard))
+            if (firstCard.Suit ==secondCard.Suit&&firstCard.Rank==secondCard.Rank)
             {
                 return 0;
             }
