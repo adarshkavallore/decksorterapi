@@ -26,7 +26,7 @@ namespace DeckSortertAPI.Services
             {
                 if (card.Length != 2 && card.Length != 3)
                 {
-                    throw new ArgumentException($"invalid card format :-{card}");
+                    throw new ArgumentException($" card \'{card}\' is invalid.");
                 }
                 var cardObject = new Card
                 {
