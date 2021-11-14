@@ -42,7 +42,7 @@ namespace DeckSortertAPI
             app.UseDeckSorterExceptionHandler();
             app.UseCors(builder =>
             {
-                builder.WithOrigins(new string[] { "http://localhost:4200" , "http://decksorterapi.southeastasia.azurecontainer.io" });
+                builder.WithOrigins(new string[] { "http://localhost:4200" , "http://decksorter.southeastasia.azurecontainer.io" });
                 builder.AllowAnyMethod();
                 builder.AllowCredentials();
                 builder.AllowAnyHeader();
